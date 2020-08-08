@@ -1,7 +1,5 @@
 package com.attemptquiz.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,12 +18,14 @@ StudentDao studentdao;
 
 @RequestMapping(value="/taketest",method = RequestMethod.POST)    
 private ModelAndView taketest(@ModelAttribute("student") Student student,ModelMap model){    
-	studentdao.save(student);
-	Date date = new Date(); 
-    System.out.println("Current date is " + date); 
+	
+	
+    studentdao.save(student);
+
     String personname=student.getName();
     String message="Welcome to exam portal "+personname;
-    return new ModelAndView("viewstudent", "welcomeMessage", message);   
+    return new ModelAndView("viewstudent", "welcomeMessage", message);  
+//    to write code to read the file and display on student exam portal instead of the message?!!!!!!
 }
 
 }
